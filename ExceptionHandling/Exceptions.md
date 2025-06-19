@@ -59,3 +59,49 @@ graph LR
   - `StackOverflowError`
   - `VirtualMachineError`
 - **Use case:** Critical failures like memory leaks or infinite recursions.
+
+## Handling Exceptions with multiple Catch blocks
+
+```java
+    public static void show() {
+        try {
+            var reader = new FileReader("file.txt");
+            var value = reader.read();
+            new SimpleDateFormat().parse("");
+
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException e) {
+            System.out.println("Could not read data");
+        } catch (ParseException e) {
+            System.out.println("Could not parse data");
+        }
+    }
+```
+
+> Above code works fine
+
+```java
+    public static void show() {
+        try {
+            var reader = new FileReader("file.txt");
+            var value = reader.read();
+            new SimpleDateFormat().parse("");
+
+        }
+        catch (IOException e) {
+            System.out.println("Could not read data");
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (ParseException e) {
+            System.out.println("Could not parse data");
+        }
+    }
+```
+
+❗ This code throws a compilation error because `FileNotFoundException` is a subclass of `IOException`.
+If you place the `catch (IOException e)` block before `catch (FileNotFoundException e)`, then the compiler considers the more specific catch block unreachable.
+
+> That’s why the **order of catch blocks must be from most specific to most general**.
+
+![Unreachable error](./screenshots/FileNotFoundException%20unreachable.png)
