@@ -105,3 +105,19 @@ If you place the `catch (IOException e)` block before `catch (FileNotFoundExcept
 > That’s why the **order of catch blocks must be from most specific to most general**.
 
 ![Unreachable error](./screenshots/FileNotFoundException%20unreachable.png)
+
+## Try with Resources
+
+```java
+        try (
+            var reader = new FileReader("file.txt");
+            var writer = new FileWriter("...")) {
+            reader.read();
+        } catch (IOException e) {
+            System.out.println("Could not read data");
+        }
+```
+
+> Try-with-resources is a feature that automatically closes resources when the try block exits. It is compiled into a try-finally block, where the close() method is called on each resource. The resource classes (like FileReader and FileWriter) must implement the AutoCloseable interface, which defines the close() method.
+
+> ✅ **Note:** You can declare multiple resources in the same `try` block, separated by semicolons.
