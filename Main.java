@@ -1,20 +1,18 @@
-import ExceptionHandling.ExceptionsDemo;
-import Generics.List;
-import Generics.User;
+import Generics.GenericList;
 
 public class Main {
     public static void main(String[] args) {
-        var list = new List();
-        // compiled to Integer.valueOf(1)
-        list.add(Integer.valueOf(1));
-        list.add("3");
-        list.add(new User());
+        var intItems = new GenericList<Integer>();
+        intItems.add(1);
+        intItems.add(2);
+        intItems.add(3);
+        Integer x = intItems.get(1);
+        System.out.println(x);
 
-        // explicit casting required
-        int number = (int) list.get(0);
-
-        // ClassCastException if wrong type used
-        // results in runtime exceptions
-        // int temp = (int) list.get(1);
+        var moviesItems = new GenericList<String>();
+        moviesItems.add("Shawshank Redemption");
+        moviesItems.add("The pursuit of Happiness");
+        moviesItems.add("A Beautiful mind");
+        System.out.println("Value of item at index 2: " + moviesItems.get(2));
     }
 }
