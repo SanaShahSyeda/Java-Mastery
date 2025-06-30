@@ -192,12 +192,16 @@ But:
 
 This behavior ensures **compile-time type safety**, even though type information is erased at runtime.
 
+---
+
 ## Autoboxing and Unboxing:
 
 Java provides automatic conversion between primitive types and their corresponding wrapper classes, known as autoboxing and unboxing.
 
 - **Autoboxing**: The automatic conversion of a primitive type to its corresponding wrapper class (e.g., int to Integer).
 - **Unboxing**: The automatic conversion of a wrapper class object to its corresponding primitive type (e.g., Integer to int).
+
+---
 
 ## Constraints in Generics
 
@@ -222,3 +226,28 @@ This is because the Java compiler erases the type parameter `T` and replaces it 
 
 🖼️ See screenshot:  
 ![Type Erasure with Constraint](./screenshots/Type%20Erasure%20with%20Constraint.png)
+
+---
+
+## Wildcards
+
+In generic code, the question mark (?), called the wildcard, represents an unknown type.
+
+### Upper Bounded Wildcards
+
+- Upper bounded wildcard restricts the unknown type to be a specific type or a subtype of that type. For example, say you want to write a method that works on `List<Integer>`, `List<Double>`, and `List<Number>`; you can achieve this by using an upper bounded wildcard.
+- To declare an upper-bounded wildcard, use the wildcard character ('?'), followed by the `extends` keyword, followed by its upper bound.
+
+### Lower Bounded Wildcards
+
+- A lower bounded wildcard restricts the unknown type to be a specific type or a super type of that type.
+- To declare an lower-bounded wildcard, usethe wildcard character ('?'), following by the super keyword, followed by its lower bound: <? super A>.
+- To write the method that works on lists of Integer and the supertypes of `Integer`, such as `Integer`, `Number`, and `Object`, you would specify `List<? super Integer>`.
+
+> Note: You can specify an upper bound for a wildcard, or you can specify a lower bound, but you cannot specify both.
+
+### Unbounded WildCards
+
+- The unbounded wildcard type is specified using the wildcard character (?), for example, List<?>. This is called a list of unknown type.
+- It is used for writing a method that can be implemented using functionality provided in the Object class.
+- Used when When the code is using methods in the generic class that don't depend on the type parameter. For example, `List.size` or `List.clear`.
