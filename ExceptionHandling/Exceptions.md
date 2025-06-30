@@ -121,3 +121,26 @@ If you place the `catch (IOException e)` block before `catch (FileNotFoundExcept
 > Try-with-resources is a feature that automatically closes resources when the try block exits. It is compiled into a try-finally block, where the close() method is called on each resource. The resource classes (like FileReader and FileWriter) must implement the AutoCloseable interface, which defines the close() method.
 
 > ✅ **Note:** You can declare multiple resources in the same `try` block, separated by semicolons.
+
+## Chaining Exceptions
+
+Java provides a concept **Chaining Exceptions** when wrapping specific exceptions inside a general/custom exception
+
+### Example: Using `initCause()`
+
+```java
+public void withdraw(float value) throws AccountException {
+ if (value > balance) {
+    var fundsException = new InsufficientFundsException();
+    var accountException = new AccountException();
+    accountException.initCause(fundsException);
+    throw accountException;
+ }
+}
+```
+
+- `initCause(Throwable cause)`: is a method available on the Throwable class (and hence Exception) that allows you to attach the cause of an exception.
+
+> **Bonus Tip💡** A concise and cleaner way to chain excpetions is to use **parametrized constructor** that takes cause(Exception).
+
+📄Bonus example in: [`Account.java`](./Account.java)
