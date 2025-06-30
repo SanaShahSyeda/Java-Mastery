@@ -23,4 +23,9 @@ public class User implements Comparable<User> {
         return points - othUser.points;
     }
 
+    @Override
+    public String toString() {
+        return "Points= " + points;
+    }
+
 }
