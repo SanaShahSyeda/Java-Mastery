@@ -1,13 +1,16 @@
 import Generics.GenericList;
+import Generics.User;
 
 public class Main {
     public static void main(String[] args) {
-        // GenericList<String> names = new GenericList<>();
-
-        // Byte, Double, Short, Integer all are subclasses of Number
-        GenericList<Long> names1 = new GenericList<>();
-        GenericList<Short> names2 = new GenericList<>();
-        GenericList<Integer> names3 = new GenericList<>();
-
+        var user1 = new User(10);
+        var user2 = new User(20);
+        if (user1.compareTo(user2) < 0) {
+            System.out.println("User1 < User2");
+        } else if (user1.compareTo(user2) == 0) {
+            System.out.println("User1 == User2");
+        } else {
+            System.out.println("User1 > User2");
+        }
     }
 }
