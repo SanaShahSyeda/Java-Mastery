@@ -1,16 +1,14 @@
 package ExceptionHandling;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import ExceptionHandling.InsufficientFundsException;
 
 public class ExceptionsDemo {
     public static void show() {
         var account = new Account();
         try {
-            account.deposit(1);
-        } catch (IOException e) {
-            e.printStackTrace();
+            account.withdraw(10);
+        } catch (InsufficientFundsException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

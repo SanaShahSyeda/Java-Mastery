@@ -3,6 +3,9 @@ package ExceptionHandling;
 import java.io.IOException;
 
 public class Account {
+
+    private float balance;
+
     // throws: provides info method might throw IOException
     // Checked exceptions must be handled
     public void deposit(float value) throws IOException {
@@ -13,6 +16,12 @@ public class Account {
         // Checked Exception
         if (value == 0) {
             throw new IOException();
+        }
+    }
+
+    public void withdraw(float value) throws InsufficientFundsException {
+        if (value > balance) {
+            throw new InsufficientFundsException();
         }
     }
 }
