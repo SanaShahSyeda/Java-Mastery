@@ -198,3 +198,18 @@ Java provides automatic conversion between primitive types and their correspondi
 
 - **Autoboxing**: The automatic conversion of a primitive type to its corresponding wrapper class (e.g., int to Integer).
 - **Unboxing**: The automatic conversion of a wrapper class object to its corresponding primitive type (e.g., Integer to int).
+
+## Constraints in Generics
+
+You can **add constraints** to type parameters in a generic class using `extends` (for classes) or `implements` (for interfaces).  
+This ensures **only data types that satisfy the constraint** can be used with the generic class.
+
+### Example: Bounded Type Parameter
+
+👉 See [Bound Mismatch Example](./GenericList.java)
+
+> The generic class has a constraint on `Number`,  
+> so trying to use a type like `String` (which is not a subclass of `Number`) results in a compilation error.
+
+🖼️ See error screenshot:  
+![Bound Mismatch](./screenshots/Bound%20Mismatch.png)
