@@ -181,7 +181,7 @@ checkcast java/lang/Integer
 
 ---
 
-## ✅ Final Insight
+### ✅ Final Insight
 
 The compiler knows the type of the list (`GenericList<T>`) during compilation.
 
@@ -191,3 +191,10 @@ But:
 - 🔐 If a specific type is expected (e.g., assignment or concatenation), the compiler inserts a `checkcast` for safety.
 
 This behavior ensures **compile-time type safety**, even though type information is erased at runtime.
+
+## Autoboxing and Unboxing:
+
+Java provides automatic conversion between primitive types and their corresponding wrapper classes, known as autoboxing and unboxing.
+
+- **Autoboxing**: The automatic conversion of a primitive type to its corresponding wrapper class (e.g., int to Integer).
+- **Unboxing**: The automatic conversion of a wrapper class object to its corresponding primitive type (e.g., Integer to int).
