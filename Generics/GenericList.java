@@ -1,6 +1,6 @@
 package Generics;
 
-public class GenericList<T> {
+public class GenericList<T extends Number> {
     private T[] items = (T[]) new Object[10];
     private int count;
 

@@ -2,8 +2,12 @@ import Generics.GenericList;
 
 public class Main {
     public static void main(String[] args) {
-        GenericList<Integer> numbers = new GenericList<Integer>();
-        numbers.add(1); // Boxing
-        int number = numbers.get(0); // Unboxing
+        // GenericList<String> names = new GenericList<>();
+
+        // Byte, Double, Short, Integer all are subclasses of Number
+        GenericList<Long> names1 = new GenericList<>();
+        GenericList<Short> names2 = new GenericList<>();
+        GenericList<Integer> names3 = new GenericList<>();
+
     }
 }
