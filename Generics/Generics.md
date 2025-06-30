@@ -206,10 +206,19 @@ This ensures **only data types that satisfy the constraint** can be used with th
 
 ### Example: Bounded Type Parameter
 
-👉 See [Bound Mismatch Example](./GenericList.java)
+👉 See [Bound Type Constraint](./GenericList.java)
 
 > The generic class has a constraint on `Number`,  
 > so trying to use a type like `String` (which is not a subclass of `Number`) results in a compilation error.
 
 🖼️ See error screenshot:  
 ![Bound Mismatch](./screenshots/Bound%20Mismatch.png)
+
+### Type Erasure with Bounded Constraints
+
+After analyzing the compiled bytecode of `GenericList<T extends Number>` using `javap`, observed that **all instances of `T` are replaced with `Number`** after compilation.
+
+This is because the Java compiler erases the type parameter `T` and replaces it with its bound (`Number`), just like how `T` is erased to `Object` in an unbounded generic.
+
+🖼️ See screenshot:  
+![Type Erasure with Constraint](./screenshots/Type%20Erasure%20with%20Constraint.png)
