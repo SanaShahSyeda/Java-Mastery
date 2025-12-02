@@ -1,0 +1,21 @@
+# Java Records
+- A record is a special Java class designed to hold immutable data with minimal boilerplate.
+- A record automatically generats:
+  - `constructor` 
+  - `getters` (x() instead of getX())
+  - `equals()`
+  - `hashCode()`
+  - `toString()`
+- A record is implicitly:
+  - `final`
+  - immutable
+  - transparent(data-centric)
+
+- Java 21 introduces record deconstruction patterns. This lets you extract data directly inside:
+  - if
+  - switch
+  - enhanced switch expressions 
+  - method parameters
+- Record patterns allow:
+  - Deconstruction of immutable data
+  - Pattern matching on structured objects
