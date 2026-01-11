@@ -1,0 +1,30 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+<modelVersion>4.0.0</modelVersion>
+    <groupId>com.example.jar</groupId>
+<artifactId>jar-example</artifactId>
+<version>1</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>JAR.JarExample</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+    </dependencies>
+</project>
