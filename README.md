@@ -1,74 +1,93 @@
 # Java Mastery
 
-Welcome to **Java Mastery**, a collection of hands-on Java examples and explanations designed to deepen understanding of core and advanced Java concepts.
+Welcome to **Java Mastery**, a curated collection of hands-on Java examples designed to build a **deep, practical understanding** of core and advanced Java concepts.
+
+This repository focuses on **how Java actually works**—from language features to build tooling—through runnable code and clear explanations.
 
 Each topic includes:
-
-- 📄 Well-documented code examples
-- 📘 A dedicated markdown file with explanations
-- 🖥️ Output screenshots/logs (when applicable)
+- 📄 Well-documented Java code examples
+- 📘 Markdown files explaining concepts and decisions
+- 🖥️ Output screenshots or logs (where relevant)
 
 ---
 
-## 📑 Table of Contents
-- [How to run Examples](#how-to-run-examples)
-- [Topics Covered](#-topics-covered)
-    - [Exception Handling](./ExceptionHandling/Exceptions.md) 
+## Table of Contents
+
+- [How to Run Examples](#how-to-run-examples)
+- [Topics Covered](#topics-covered)
+    - [Exception Handling](./ExceptionHandling/Exceptions.md)
     - [Generics](./Generics/README.md)
-    - [Java 21 - Record Patterns](./Java21/RecordPatterns/Records.md) 
-    - [Java 21 - Sequenced Collections](./Java21/SequencedCollections/) 
+    - [Java 21 – Record Patterns](./Java21/RecordPatterns/Records.md)
+    - [Java 21 – Sequenced Collections](./Java21/SequencedCollections/)
     - [Streams API](./Streams/Streams.md)
+    - [JAR Files (Thin vs Fat)](./JAR/JAR.md)
 - [Upcoming Topics](#upcoming-topics)
 - [Motivation](#motivation)
-- [License](#-license)
+- [License](#license)
 
 ---
 
 ## How to Run Examples
 
-- Java Version: 21
-- Build Tool: None (plain javac) / Maven (if applicable)
+- **Java Version:** 21
+- **Build Tools:**
+    - `javac` / `java` for standalone, language-focused examples
+    - **Maven** for topics involving build tooling (e.g., JAR packaging)
 
-Each folder contains independent examples that can be compiled and run directly.
+Each folder is self-contained.  
+Instructions or assumptions specific to a topic are documented inside that folder.
 
 ---
 
-## 📚 Topics Covered
+## Topics Covered
 
 ### 1. Exception Handling
-
-- Covers try-catch, multi-catch, try-with-resources, custom exceptions, chained exceptions, and finally block.
+- `try-catch`, multi-catch, `finally`
+- Try-with-resources
+- Custom and chained exceptions
+- Common pitfalls and best practices
 
 ### 2. Generics
+- Type safety and invariance
+- Generic classes and methods
+- Wildcards (`? extends`, `? super`)
+- Type erasure and its implications
 
-- Learn type safety, generic classes, methods, wildcards, and type erasure.
+### 3. Java 21 – Record Patterns
+- Deconstructing immutable data
+- Pattern matching in `switch` and `if`
+- Cleaner, safer data access with records
 
-### 3. Java 21 - Record Patterns
+### 4. Java 21 – Sequenced Collections
+- Ordered access to first/last elements
+- New APIs for lists, sets, and maps
 
-- Explore Java 21's record patterns for deconstructing immutable data with pattern matching in switch expressions and if statements.
+### 5. Streams API
+- Intermediate vs terminal operations
 
-### 4. Java 21 - Sequenced Collections
-
-- Learn about Java 21's sequenced collections API for ordered access to first/last elements in collections, maps, and sets.
-
-### 5 Streams API
-
-- Explore's Streams API
+### 6. JAR Files (Thin vs Fat)
+- What a JAR really is
+- Thin JAR vs Fat (Uber) JAR
+- Real troubleshooting from local builds
 
 ---
 
 ## Upcoming Topics
 
-Planned additions with code examples and markdown documentation:
+Planned additions with runnable examples and documentation:
 
-- [ ] JAR File(THIN v/s FAT)
+- [ ] EAR and WAR
 
 ---
 
 ## Motivation
 
-This project is part of my journey to gain mastery in Java by exploring concepts in-depth with clean code examples and visual explanations.
+This repository documents my journey toward **true Java mastery**; not just using APIs, but understanding the runtime, tooling, and design trade-offs behind them.
 
-## 📄 License
+The goal is clarity over abstraction, correctness over shortcuts, and learning by doing.
+
+---
+
+## License
 
 This project is licensed under the [MIT License](LICENSE).
