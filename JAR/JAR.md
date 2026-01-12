@@ -137,8 +137,38 @@ Java behaviour
 
 ---
 
-## Next steps
+## Fat (Uber) JAR using Maven Shade Plugin
 
-- After the thin JAR notes above, a section showing how to produce a fat (uber) JAR using the Maven Shade Plugin will be added.
+A Fat JAR packages:
+- Application classes
+- All third-party dependencies
+- This allows the application to be executed using a single command.
+
+### What Happens During mvn package
+- `maven-compiler-plugin` compiles Java sources
+- `maven-jar-plugin` creates the original thin JAR
+- `maven-shade-plugin`
+  - Renames the thin JAR to: `original-jar-example-1.jar`
+  - Creates a new **fat** JAR: `jar-example-1.jar`
+  - Embeds all dependency classes
+  
+### Running the Fat JAR
+
+```java
+java -jar target/jar-example-1.jar
+```
+- ✔ No classpath required
+- ✔ All dependencies bundled
+- ✔ Single-file deployment
+
+- [Fat JAR - output](./screenshots/fat-jat.png)
+
+
+> [!IMPORTANT]
+> `maven-jar-plugin` is a **default Maven plugin** that runs automatically during the `package` phase for projects with:
+> ```xml
+> <packaging>jar</packaging>
+> ```
+> If packaging is not specified, Maven defaults to jar.
 
 ---
