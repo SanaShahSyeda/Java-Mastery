@@ -18,10 +18,6 @@ Thin JARs are small and are commonly used with application servers or environmen
 This simplifies distribution (one file to run) but increases size and may introduce duplicate resources or class-path conflicts.  
 Commonly built using the Maven Shade Plugin or Maven Assembly Plugin.
 
-> [!NOTE]
-> This document focuses on **thin JAR behavior and troubleshooting** observed during local Maven runs.  
-> A dedicated **Fat JAR** section (with Maven Shade examples) will be added next.
-
 ---
 
 ## Troubleshooting from Local Maven Runs
@@ -33,8 +29,8 @@ During experimentation, the following issues were encountered.
 
 If no `.java` files exist under `src/main/java/`, Maven reports *“No sources to compile”* and produces an effectively empty JAR.
 
-- [No Sources to Compile](screenshots/mvn%20package%20-%20No%20sources%20to%20compile.png)
-- [Empty JAR](screenshots/empty%20JAR.png)
+- ![No Sources to Compile](./screenshots/mvn%20package%20-%20No%20sources%20to%20compile.png)
+- ![Empty JAR](./screenshots/empty%20JAR.png)
 
 **Fix**
 - Ensure all production sources are placed under `src/main/java`.
@@ -50,7 +46,7 @@ public static void main(String[] args)
 ```
 If the signature is incorrect, the runtime cannot locate a proper entry point.
 
-- [Define the main method](screenshots/JAR.JarExample%20-%20please%20define%20the%20main%20method.png)
+- ![Define the main method](./screenshots/JAR.JarExample%20-%20please%20define%20the%20main%20method.png)
 
 **Fix**
 - Use the exact main method signature shown above.
@@ -133,7 +129,7 @@ Java behaviour
 - Tries to run JarExample.java
 👉 Dependency JARs are invisible → 💥 NoClassDefFoundError
 
-[Thin JAR File output](./screenshots/java%20-cp.png)
+![Thin JAR File output](./screenshots/java%20-cp.png)
 
 ---
 
@@ -161,7 +157,7 @@ java -jar target/jar-example-1.jar
 - ✔ All dependencies bundled
 - ✔ Single-file deployment
 
-- [Fat JAR - output](./screenshots/fat-jat.png)
+- ![Fat JAR - output](./screenshots/fat-jat.png)
 
 
 > [!IMPORTANT]
